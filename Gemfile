@@ -69,3 +69,13 @@ end
 gem "bootstrap", "~> 5.3"
 
 gem "sassc-rails", "~> 2.1"
+
+gem "kaminari", "~> 1.2"
+
+gem "bootstrap5-kaminari-views", "~> 0.0.1"
+
+gem 'simple_form', '~> 5.3'
+gem 'trailblazer', '~> 1.1'
+gem 'trailblazer-rails'
+gem 'dry-struct', '~> 1.6'
+gem 'dry-struct-setters', '~> 0.4', require: 'dry/struct/with_setters'

@@ -1,0 +1,13 @@
+<tr>
+  <th scope="row"><%= trade.row_id %></th>
+  <td><small><%= trade.trade_datetime %></small></td>
+  <td><%= trade.security_id %></td>
+  <td><%= trade.security_name %></td>
+  <td><%= number_to_rounded(trade.coupon_rate, precision: 6) %></td>
+  <td><small><%= trade.maturity_date %></small></td>
+  <td><%= trade.transaction_type %></td>
+  <td><%= number_to_rounded(trade.trade_price, precision: 4) %></td>
+  <td><%= number_to_rounded(trade.trade_yield, precision: 6) %></td>
+  <td><%= trade.par_traded %></td>
+  <td><%= number_to_rounded(trade.notional_amount, precision: 12) %></td>
+</tr>

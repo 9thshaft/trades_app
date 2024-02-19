@@ -1,0 +1,105 @@
+<div class='row'>
+  <div class="col-xs-12">
+    <span class='h1'>
+      Trades
+      <small class='text-muted fs-6 ms-3'>
+        <%= @filter.to_s %>
+        <%- unless @filter.to_s.blank? %>
+          <%= link_to("<i class='bi bi-x-circle'></i>".html_safe, root_path, "data-turbo" => "false") %>
+        <% end %>
+      </small>
+    </span>
+
+    <a class='float-end lh-3' data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+      Filter <span class="d-none d-sm-inline">trades</span>
+    </a>
+
+    <div class="offcanvas offcanvas-end w-40" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filter trades</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <%= simple_form_for @form, url: root_path, as: :filter, method: :get do |f| %>
+
+          <%= f.input :transaction_types, collection: Trade::TRANSACTION_TYPES, as: :check_boxes, include_hidden: false, required: false %>
+
+          <div class='row'>
+            <div class='col-md-6'>
+              <%= f.input :trade_price_start, required: false, input_html: { class: 'mb-3', step: 0.0 } %>
+            </div>
+            <div class='col-md-6'>
+              <%= f.input :trade_price_end, required: false, input_html: { class: 'mb-3', step: 0.0 } %>
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class='col-md-6'>
+              <%= f.input :maturity_date_start, as: :date, html5: true, required: false %>
+            </div>
+            <div class='col-md-6'>
+              <%= f.input :maturity_date_end, as: :date, html5: true, required: false %>
+            </div>
+          </div>
+
+          <div class='row'>
+            <div class='col-md-6'>
+              <%= f.input :trade_datetime_start, as: :datetime, html5: true, required: false %>
+            </div>
+            <div class='col-md-6'>
+              <%= f.input :trade_datetime_end, as: :datetime, html5: true, required: false %>
+            </div>
+          </div>
+
+          <div class='form-group'>
+            <hr>
+            <button class='btn btn-primary' type="submit">
+              <i class="fa fa-fw fa-search"></i> Filter trades
+            </button>
+            <%= link_to 'Reset', root_path, class: 'btn btn-light ms-2' %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-xs-12">
+    <%= paginate @trades, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center", nav_class: "d-inline-block" %>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Row ID</th>
+      <th scope="col">Trade Time</th>
+      <th scope="col">Sec ID</th>
+      <th scope="col">Sec Name</th>
+      <th scope="col">Coupon Rate</th>
+      <th scope="col">Maturity Date</th>
+      <th scope="col">Transaction Type</th>
+      <th scope="col">Trade Price</th>
+      <th scope="col">Trade Yield</th>
+      <th scope="col">Par Traded</th>
+      <th scope="col">Notional Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%- @trades.each do |trade| %>
+      <%= render 'trade', trade: trade %>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="row">
+  <div class="col-xs-12">
+    <%= paginate @trades, theme: 'bootstrap-5', pagination_class: "pagination-sm flex-wrap justify-content-center", nav_class: "d-inline-block" %>
+  </div>
+</div>

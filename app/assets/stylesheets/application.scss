@@ -1,0 +1,28 @@
+@import "bootstrap";
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+.lh-3 {
+  line-height: 3rem;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+.offcanvas-body form {
+  label {
+    font-weight: bold;
+  }
+
+  fieldset {
+    legend {
+      font-weight: bold;
+    }
+
+    label {
+      font-weight: initial;
+    }
+  }
+}
+
+
