@@ -100,6 +100,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    chartkick (5.0.5)
     concurrent-ruby (1.2.3)
     connection_pool (2.4.1)
     crass (1.0.6)
@@ -344,6 +345,7 @@ DEPENDENCIES
   bootstrap (~> 5.3)
   bootstrap5-kaminari-views (~> 0.0.1)
   capybara
+  chartkick (~> 5.0)
   debug
   dry-struct (~> 1.6)
   dry-struct-setters (~> 0.4)

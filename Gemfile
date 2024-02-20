@@ -79,3 +79,5 @@ gem 'trailblazer', '~> 1.1'
 gem 'trailblazer-rails'
 gem 'dry-struct', '~> 1.6'
 gem 'dry-struct-setters', '~> 0.4', require: 'dry/struct/with_setters'
+
+gem "chartkick", "~> 5.0"

@@ -8,4 +8,9 @@ class TradesController < ApplicationController
 
     render inline: 'Data is not valid. Please try again.'
   end
+
+  def chart
+    @avg_trade_prices = Trade.group(:trade_date).average(:trade_price)
+    @trades = Trade.group(:trade_date).count
+  end
 end
