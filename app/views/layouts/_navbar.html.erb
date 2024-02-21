@@ -13,7 +13,7 @@
           <%= link_to('Charts', trades_chart_path, class: "nav-link #{'active' if current_page?(controller: 'trades', action: 'chart')}", 'aria-current' => "page") %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Stats</a>
+          <%= link_to('Stats', statistics_path, class: "nav-link #{'active' if current_page?(controller: 'statistics', action: 'show')}", 'aria-current' => "page") %>
         </li>
       </ul>
     </div>

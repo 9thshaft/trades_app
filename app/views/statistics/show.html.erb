@@ -1,0 +1,56 @@
+<div class='row'>
+  <div class="col-xs-12">
+    <span class='h1'>
+      Statistics
+      <small class='text-muted fs-6 ms-3'>
+        <%= @filter.to_s %>
+        <%- unless @filter.to_s.blank? %>
+          <%= link_to("<i class='bi bi-x-circle'></i>".html_safe, statistics_path, "data-turbo" => "false") %>
+        <% end %>
+      </small>
+    </span>
+
+    <a class='float-end lh-3' data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+      Filter <span class="d-none d-sm-inline">stats</span>
+    </a>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Filter stats</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <%= simple_form_for @form, url: statistics_path, as: :filter, method: :get do |f| %>
+          <%= f.input :trade_date_start, as: :date, html5: true, required: false %>
+          <%= f.input :trade_date_end, as: :date, html5: true, required: false %>
+
+          <div class='form-group'>
+            <hr>
+            <button class='btn btn-primary' type="submit">
+              <i class="fa fa-fw fa-search"></i> Filter stats
+            </button>
+            <%= link_to 'Reset', statistics_path, class: 'btn btn-light ms-2' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%- @stats.each do |m| %>
+          <tr>
+            <td><%= m.name %></td>
+            <td><%= m.value_with_unit %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>
