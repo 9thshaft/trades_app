@@ -1,24 +1,7 @@
-# README
+# Trades App 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This test project is build with `ruby 3.3.0`, `rails 7.1.3`, `postgresql`.
+Deployed to `https://trades-app.onrender.com`.
 
-Things you may want to cover:
+Please, use `rake trade_app:import_data` to import data from sample csv.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
